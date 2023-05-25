@@ -22,8 +22,17 @@ namespace WebApiPratice.WebApi.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        public bool Post([FromBody] string value)
         {
+            if (value == "da")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         // PUT api/values/5
