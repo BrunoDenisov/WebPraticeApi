@@ -46,9 +46,13 @@ namespace WebApiPratice.WebApi.Controllers
         }
 
         // PUT: api/Car/put
-        public void Put(int id, [FromBody]Car updateCar)
+        public HttpResponseMessage Put(int id, [FromBody]Car updateCar)
         {
             Car carToUpdate = cars.Find(car  => car.Id == id);
+            int index = cars.FindIndex(carI => carI.Id == id);
+            cars[index] = updateCar;
+            return Request.CreateResponse(HttpStatusCode.OK, cars[1]);
+
         }
 
         // DELETE: api/Car/delete
