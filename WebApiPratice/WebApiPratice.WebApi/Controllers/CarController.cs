@@ -12,9 +12,12 @@ namespace WebApiPratice.WebApi.Controllers
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public List<string> cars { get; set; }
     }
     public class CarController : ApiController
     {
+
         // GET: api/Car
         public string Get(int id, string name)
         {
