@@ -22,33 +22,33 @@ namespace WebApiPratice.WebApi.Controllers
         };
 
 
-        // GET: api/Car
+        // GET: api/Car/prim
         public string Get(int id, string name)
         {
             return (Convert.ToString(id) + name);
         }
 
-        // GET: api/Car
+        // GET: api/Car/get/body
         public string Get([FromBody] Info info)
         {
             return (info.Name + info.Id);
         }
 
-        // POST: api/Car
-        public HttpResponseMessage Post([FromBody]string value)
+        // POST: api/Car/post
+        public HttpResponseMessage Post([FromBody]Car addCar)
         {
-           if (cars == null)
+            if (addCar.Id > 3)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Car cannot be written");
+                cars.Add(addCar);
+                return Request.CreateResponse(HttpStatusCode.OK, "Data Succesfully Added");
             }
-           else
-                return Request.CreateResponse(HttpStatusCode.OK, "Everything is ok");
+            return Request.CreateResponse(HttpStatusCode.Forbidden);
         }
 
-        // PUT: api/Car/5
-        public void Put(int id, [FromBody]string value)
+        // PUT: api/Car/put
+        public void Put(int id, [FromBody]Car updateCar)
         {
-
+            Car carToUpdate = cars.Find(car  => car.Id == id);
         }
 
         // DELETE: api/Car/delete
