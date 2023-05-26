@@ -63,7 +63,7 @@ namespace WebApiPratice.WebApi.Controllers
                     return Request.CreateResponse(HttpStatusCode.OK, "The data succesfuly delleted");
                 } 
             }
-            return Request.CreateErrorResponse(HttpStatusCode.NoContent, "The data does not exist");
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "The data does not exist");
 
        
         }
